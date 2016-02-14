@@ -8,6 +8,7 @@ class ControllerModuleSlideshow extends Controller {
 
 		$this->document->addStyle('catalog/view/javascript/jquery/owl-carousel/owl.carousel.css');
 		$this->document->addScript('catalog/view/javascript/jquery/owl-carousel/owl.carousel.min.js');
+		$this->document->addStyle('catalog/view/javascript/jquery/owl-carousel/owl.transitions.css');
 
 		$data['banners'] = array();
 

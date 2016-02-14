@@ -19,6 +19,8 @@ class ControllerCommonFooter extends Controller {
 		$data['text_order'] = $this->language->get('text_order');
 		$data['text_wishlist'] = $this->language->get('text_wishlist');
 		$data['text_newsletter'] = $this->language->get('text_newsletter');
+		$data['text_transaction'] = $this->language->get('text_transaction');
+		$data['text_download'] = $this->language->get('text_download');
 
 		$this->load->model('catalog/information');
 
@@ -44,8 +46,16 @@ class ControllerCommonFooter extends Controller {
 		$data['order'] = $this->url->link('account/order', '', 'SSL');
 		$data['wishlist'] = $this->url->link('account/wishlist', '', 'SSL');
 		$data['newsletter'] = $this->url->link('account/newsletter', '', 'SSL');
+		$data['transaction'] = $this->url->link('account/transaction', '', 'SSL');
+		$data['download'] = $this->url->link('account/download', '', 'SSL');
 
 		$data['powered'] = sprintf($this->language->get('text_powered'), $this->config->get('config_name'), date('Y', time()));
+		
+		$data['footertop'] = $this->load->controller('common/footertop');
+		$data['footerbottom'] = $this->load->controller('common/footerbottom');
+		$data['footerright'] = $this->load->controller('common/footerright');
+		$data['footernewstext'] = $this->load->controller('common/footernewstext');
+		
 
 		// Whos Online
 		if ($this->config->get('config_customer_online')) {
@@ -71,6 +81,13 @@ class ControllerCommonFooter extends Controller {
 
 			$this->model_tool_online->addOnline($ip, $this->customer->getId(), $url, $referer);
 		}
+		
+		$data['footertop'] = $this->load->controller('common/footertop');
+		$data['footerbottom'] = $this->load->controller('common/footerbottom');
+		$data['footerright'] = $this->load->controller('common/footerright');
+		$data['footernewstext'] = $this->load->controller('common/footernewstext');
+
+
 
 		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/common/footer.tpl')) {
 			return $this->load->view($this->config->get('config_template') . '/template/common/footer.tpl', $data);

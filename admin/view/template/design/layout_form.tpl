@@ -124,7 +124,41 @@
                     <?php } else { ?>
                     <option value="column_right"><?php echo $text_column_right; ?></option>
                     <?php } ?>
-                  </select></td>
+					
+					
+					<?php if ($layout_module['position'] == 'footertop') { ?>
+                    <option value="footertop" selected="selected"><?php echo $text_footertop; ?></option>
+                    <?php } else { ?>
+                    <option value="footertop"><?php echo $text_footertop; ?></option>
+                    <?php } ?>
+					
+					<?php if ($layout_module['position'] == 'footerright') { ?>
+                    <option value="footerright" selected="selected"><?php echo $text_footerright; ?></option>
+                    <?php } else { ?>
+                    <option value="footerright"><?php echo $text_footerright; ?></option>
+                    <?php } ?>
+					
+					<?php if ($layout_module['position'] == 'footerbottom') { ?>
+                    <option value="footerbottom" selected="selected"><?php echo $text_footerbottom; ?></option>
+                    <?php } else { ?>
+                    <option value="footerbottom"><?php echo $text_footerbottom; ?></option>
+                    <?php } ?>
+					
+					<?php if ($layout_module['position'] == 'footernewstext') { ?>
+                    <option value="footernewstext" selected="selected"><?php echo $text_footernewstext; ?></option>
+                    <?php } else { ?>
+                    <option value="footernewstext"><?php echo $text_footernewstext; ?></option>
+                    <?php } ?>
+					
+					<?php if ($layout_module['position'] == 'headertop') { ?>
+                    <option value="headertop" selected="selected"><?php echo $text_headertop; ?></option>
+                    <?php } else { ?>
+                    <option value="headertop"><?php echo $text_headertop; ?></option>
+                    <?php } ?>
+					
+                  </select>
+				  
+				  </td>
                 <td class="text-right"><input type="text" name="layout_module[<?php echo $module_row; ?>][sort_order]" value="<?php echo $layout_module['sort_order']; ?>" placeholder="<?php echo $entry_sort_order; ?>" class="form-control" /></td>
                 <td class="text-left"><button type="button" onclick="$('#module-row<?php echo $module_row; ?>').remove();" data-toggle="tooltip" title="<?php echo $button_remove; ?>" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button></td>
               </tr>
@@ -183,7 +217,14 @@ function addModule() {
     html += '    <option value="content_top"><?php echo $text_content_top; ?></option>';
     html += '    <option value="content_bottom"><?php echo $text_content_bottom; ?></option>';
     html += '    <option value="column_left"><?php echo $text_column_left; ?></option>';
-    html += '    <option value="column_right"><?php echo $text_column_right; ?></option>';
+    
+	html += '    <option value="column_right"><?php echo $text_column_right; ?></option>';
+	html += '    <option value="footertop"><?php echo $text_footertop; ?></option>';
+	html += '    <option value="footerright"><?php echo $text_footerright; ?></option>';
+	html += '    <option value="footerbottom"><?php echo $text_footerbottom; ?></option>';
+	html += '    <option value="headertop"><?php echo $text_headertop; ?></option>';
+	html += '    <option value="footernewstext"><?php echo $text_footernewstext; ?></option>';
+	
     html += '  </select></td>';
 	html += '  <td class="text-left"><input type="text" name="layout_module[' + module_row + '][sort_order]" value="" placeholder="<?php echo $entry_sort_order; ?>" class="form-control" /></td>';
 	html += '  <td class="text-left"><button type="button" onclick="$(\'#module-row' + module_row + '\').remove();" data-toggle="tooltip" title="<?php echo $button_remove; ?>" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button></td>';
