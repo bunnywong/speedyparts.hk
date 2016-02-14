@@ -1,0 +1,15 @@
+config.php
+admin/config.php
+
+system/storage/cache/*
+!system/storage/cache/index
+
+image/cache/*
+!image/cache/index
+
+system/cache/*
+!system/cache/index
+
+system/storage/cache/*
+!system/storage/cache/index
+
